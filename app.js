@@ -1,4 +1,5 @@
-if(process.env.NODE_ENV!="production"){require("dotenv").config()}
+require('dotenv').config();
+
 // console.log(process.env.SECRET)
 const express=require("express");
 const { default: mongoose } = require("mongoose");
@@ -31,7 +32,7 @@ const sessionOptions=
     console.log("connection successful")
 }).catch((err)=>{console.log(err)})
 async function main(){
-    await mongoose.connect(process.env.MONGOURL);
+    await mongoose.connect(process.env.MONGO_URL);
 }
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
