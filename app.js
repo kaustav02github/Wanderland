@@ -15,7 +15,7 @@ const session=require("express-session");
 const User=require("./models/user.js");
 const LocalStrategy=require("passport-local");
 const passport = require("passport");
-
+const port = process.env.PORT || 8080;
 const sessionOptions=
                     {secret:process.env.secret,
                     resave:false,
@@ -31,7 +31,7 @@ const sessionOptions=
     console.log("connection successful")
 }).catch((err)=>{console.log(err)})
 async function main(){
-    await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
+    await mongoose.connect(process.env.MONGOURL);
 }
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -72,8 +72,8 @@ app.use("/",userRoutes)
 // })
 
 
-app.listen(8080,()=>{
-    console.log("listening to port 8080");
+app.listen(port,()=>{
+    console.log(`Server is running on port ${port}`);
 
 })
 
