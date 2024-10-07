@@ -63,6 +63,10 @@ app.use((req,res,next)=>{
 app.use("/listings",listingRoutes)
 app.use("/listings/:id/reviews",reviewRoutes)
 app.use("/",userRoutes)
+app.get('/', (req, res) => {
+    res.redirect('/listings'); // or render a homepage
+});
+
  app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something went wrong' } = err;
     res.status(statusCode).render('error.ejs', { err });
