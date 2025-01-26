@@ -9,3 +9,19 @@ used NODE.js,Express,REST APIs for performing basic CRUD Applications
 USed cloud storage for storing the uploaded image using # cloudinary
 # databases :
 used MOONGODB for storing data
+
+# Major Project
+
+## Deployment on Vercel
+
+1. Install Vercel CLI:
+   ```sh
+   npm install -g vercel
+   ```
+
+2. Deploy the project:
+   ```sh
+   vercel
+   ```
+
+3. Follow the prompts to complete the deployment.
